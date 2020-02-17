@@ -33,7 +33,7 @@ class SignUp extends Component {
         this.props.history.push(`/dashboard`);
       })
       .catch((error) => {
-        console.log(error.response.data.errors);
+        console.log(error.response.data);
         const error_list = error.response.data.errors;
         if (error_list.email !== undefined) {
           const email_error = error_list.email;
