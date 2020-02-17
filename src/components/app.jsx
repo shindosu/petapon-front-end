@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     localStorage.setItem("url", 'https://railsjwtapi.herokuapp.com');
     if(process.env.NODE_ENV !== 'production') {
-      localStorage.setItem("url", 'http://localhost:3000');
+      localStorage.setItem("url", 'http://localhost:3001');
     }
     console.log(localStorage.url)
   }
