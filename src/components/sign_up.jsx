@@ -35,15 +35,17 @@ class SignUp extends Component {
       .catch((error) => {
         console.log(error.response.data);
         const error_list = error.response.data.errors;
-        if (error_list.email !== undefined) {
+        console.log("Email error present?", error_list.hasOwnProperty('email'))
+        if (error_list.hasOwnProperty('email')) {
+          console.log()
           const email_error = error_list.email;
           document.getElementsByClassName("email-error")[0].innerText = email_error
         }
-        if (error_list.password !== undefined) {
+        if (error_list.hasOwnProperty('password')) {
           const password_error = error_list.password;
           document.getElementsByClassName("password-error")[0].innerText = password_error[0]
         }
-        if (error_list.password_confirmation !== undefined) {
+        if (error_list.hasOwnProperty('password_confirmation')) {
           const password_confirmation_error = error_list.password_confirmation;
           document.getElementsByClassName("password-confirmation-error")[0].innerText = password_confirmation_error
         }
