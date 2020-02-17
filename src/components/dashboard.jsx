@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import jwtDecode from "jwt-decode";
-import {BrowserRouter as Redirect} from "react-router-dom";
 
 class Dashboard extends Component {
   constructor(props) {
