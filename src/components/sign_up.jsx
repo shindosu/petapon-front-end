@@ -35,16 +35,16 @@ class SignUp extends Component {
       .catch((error) => {
         console.log(error.response.data.errors);
         const error_list = error.response.data.errors;
-        const email_error = error_list.email;
-        const password_error = error_list.password;
-        const password_confirmation_error = error_list.password_confirmation;
-        if (email_error !== undefined) {
+        if (error_list.email !== undefined) {
+          const email_error = error_list.email;
           document.getElementsByClassName("email-error")[0].innerText = email_error
         }
-        if (password_error !== undefined) {
+        if (error_list.password !== undefined) {
+          const password_error = error_list.password;
           document.getElementsByClassName("password-error")[0].innerText = password_error[0]
         }
-        if (password_confirmation_error !== undefined) {
+        if (error_list.password_confirmation !== undefined) {
+          const password_confirmation_error = error_list.password_confirmation;
           document.getElementsByClassName("password-confirmation-error")[0].innerText = password_confirmation_error
         }
       });
