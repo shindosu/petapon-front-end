@@ -34,7 +34,8 @@ class SignUp extends Component {
       })
       .catch((error) => {
         console.log(error.response.data);
-        const error_list = error.response.data.errors;
+        if (error.response.data.hasOwnProperty('errors')) {
+          const error_list = error.response.data.errors;
         console.log("Email error present?", error_list.hasOwnProperty('email'))
         if (error_list.hasOwnProperty('email')) {
           console.log()
@@ -48,6 +49,7 @@ class SignUp extends Component {
         if (error_list.hasOwnProperty('password_confirmation')) {
           const password_confirmation_error = error_list.password_confirmation;
           document.getElementsByClassName("password-confirmation-error")[0].innerText = password_confirmation_error
+        }
         }
       });
   }
