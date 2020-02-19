@@ -4,6 +4,7 @@ import SignIn from "./signIn";
 import SignUp from "./sign_up";
 import Dashboard from "./dashboard";
 import ProtectedRoute from './protected_routes';
+import Home from "./home"
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/" exact component={SignIn} />
+          <Route path="/" exact component={Home} />
           <Route path="/sign_up" exact component={SignUp} />
           <Route path="/sign_in" exact component={SignIn} />
           <ProtectedRoute
