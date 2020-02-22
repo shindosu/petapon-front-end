@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignIn from "./signIn";
 import SignUp from "./sign_up";
 import Dashboard from "./dashboard";
+import Project from "./project";
+import newProject from "./newProject";
 import ProtectedRoute from './protected_routes';
 import Home from "./home"
 
@@ -26,7 +28,14 @@ class App extends Component {
         path={"/dashboard"}
         exact component={Dashboard}
         />
-          {/* {localStorage.jwt === null ? <Route path="/dashboard" component={Dashboard} /> : <Redirect to="/"/>} */}
+        <ProtectedRoute
+        path={"/new-project"}
+        exact component={newProject}
+        />
+          <ProtectedRoute
+        exact path={"/projects/:id"}
+        component={Project}
+        />
         </Switch>
       </Router>
     )

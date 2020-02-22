@@ -28,7 +28,6 @@ class SignIn extends Component {
       })
       .catch((error) => {
         console.log(error.response.data.errors);
-        const password_field = document.getElementById("password");
         const error_list = error.response.data.errors;
         // document.getElementsByClassName("error-list")[0].childNodes[0].innerText
         document.getElementsByClassName("error")[0].innerText = error_list
