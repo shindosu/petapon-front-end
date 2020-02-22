@@ -11,7 +11,7 @@ import Home from "./home"
 class App extends Component {
   constructor(props) {
     super(props);
-    localStorage.setItem("url", 'https://railsjwtapi.herokuapp.com');
+    localStorage.setItem("url", 'http://petapon-api.herokuapp.com/');
     if(process.env.NODE_ENV !== 'production') {
       localStorage.setItem("url", 'http://localhost:3001');
     }
