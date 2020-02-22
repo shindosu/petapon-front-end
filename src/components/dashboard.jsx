@@ -16,6 +16,7 @@ class Dashboard extends Component {
   componentDidMount(){
     let jwt = window.localStorage.getItem('jwt');
     let result = jwtDecode(jwt);
+    console.log(result);
     this.setState({
       email:result.email
     })
@@ -27,6 +28,7 @@ class Dashboard extends Component {
       localStorage.url + '/api/v1/projects',
     )
       .then((response) => {
+        console.log(response);
         const userProjects = response.data.filter(project => {return project.user_id === result.id})
         this.setState({
           projects: userProjects
