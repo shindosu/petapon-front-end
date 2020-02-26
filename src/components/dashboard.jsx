@@ -30,6 +30,7 @@ class Dashboard extends Component {
       .then((response) => {
         console.log(response);
         const userProjects = response.data.filter(project => {return project.user_id === result.id})
+        console.log(userProjects)
         this.setState({
           projects: userProjects
         })
@@ -56,6 +57,7 @@ class Dashboard extends Component {
       localStorage.url + `/api/v1/projects/${projectNumber}`
     )
       .then((response) => {
+        console.log(response);
         console.log(this.state.projects)
         document.getElementById(projectId).remove();
       })
