@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import {Link} from "react-router-dom"
+import StickerList from './sticker_list';
 
 class newProject extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class newProject extends Component {
     let jwt = window.localStorage.getItem('jwt');
     let result = jwtDecode(jwt);
     const title = document.getElementById("title").value;
-
+    console.log(result);
     axios.post(
       localStorage.url + '/api/v1/projects',
       {
@@ -45,6 +46,7 @@ class newProject extends Component {
   render() {
     return (
       <React.Fragment>
+      <StickerList />
       <div className="form-group">
         <h1>Create new Project</h1>
         <form onSubmit={this.handleSubmit} id="sign-up-form">
@@ -54,6 +56,7 @@ class newProject extends Component {
         </form>
       </div>
       <Link to="/dashboard">Back</Link>
+      <StickerList></StickerList>
       </React.Fragment>
 
     );

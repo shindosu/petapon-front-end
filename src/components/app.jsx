@@ -16,6 +16,7 @@ class App extends Component {
       localStorage.setItem("url", 'http://localhost:3001');
     }
     console.log(localStorage.url)
+    console.log("The local stiorage is", localStorage.jwt);
   }
   render() {
     return (
